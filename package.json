@@ -1,0 +1,45 @@
+{
+  "name": "country-code-to-flag-emoji",
+  "version": "1.0.0",
+  "description": "A function that returns a flag emoji given IETF language tag.",
+  "main": "dist/index.js",
+  "source": "src/index.js",
+  "scripts": {
+    "build": "babel src -d dist --ignore **/__tests__,**/*.spec.js",
+    "clean": "rimraf dist",
+    "jest": "jest",
+    "jest-coverage": "jest --coverage",
+    "lint": "eslint src/ --ext .jsx,.js",
+    "prepublishOnly": "yarn clean && yarn build",
+    "test": "yarn lint && yarn jest"
+  },
+  "keywords": [
+    "emoji"
+  ],
+  "author": {
+    "name": "Wojciech Maj",
+    "email": "kontakt@wojtekmaj.pl"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "babel-jest": "^24.0.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "jest": "^24.8.0",
+    "rimraf": "^2.6.3"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist/",
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wojtekmaj/country-code-to-flag-emoji.git"
+  }
+}
