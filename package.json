@@ -1,6 +1,6 @@
 {
   "name": "country-code-to-flag-emoji",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A function that returns a flag emoji given IETF language tag.",
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
