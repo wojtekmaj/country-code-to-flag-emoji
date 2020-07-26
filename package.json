@@ -45,5 +45,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wojtekmaj/country-code-to-flag-emoji.git"
-  }
+  },
+  "funding": "https://github.com/wojtekmaj/country-code-to-flag-emoji?sponsor=1"
 }
