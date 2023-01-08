@@ -19,6 +19,12 @@ describe('countryCodeToFlagEmoji', () => {
     expect(result).toBe('🇵🇱');
   });
 
+  it('returns proper emoji from a full IETF language tag with different parts', () => {
+    const result = countryCodeToFlagEmoji('ar-AE');
+
+    expect(result).toBe('🇦🇪');
+  });
+
   it('returns proper emoji from a region name', () => {
     const result = countryCodeToFlagEmoji('PL');
 
