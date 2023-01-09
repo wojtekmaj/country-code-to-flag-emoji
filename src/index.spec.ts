@@ -2,9 +2,10 @@ import countryCodeToFlagEmoji from './index';
 
 describe('countryCodeToFlagEmoji', () => {
   it('returns nothing given nothing', () => {
+    // @ts-expect-error-next-line
     const result = countryCodeToFlagEmoji();
 
-    expect(result).toBe();
+    expect(result).toBe(null);
   });
 
   it('returns proper emoji from a full IETF language tag', () => {
