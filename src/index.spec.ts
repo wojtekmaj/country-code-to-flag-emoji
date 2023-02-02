@@ -3,9 +3,7 @@ import countryCodeToFlagEmoji from './index';
 describe('countryCodeToFlagEmoji', () => {
   it('returns nothing given nothing', () => {
     // @ts-expect-error-next-line
-    const result = countryCodeToFlagEmoji();
-
-    expect(result).toBe(null);
+    expect(() => countryCodeToFlagEmoji()).toThrow();
   });
 
   it('returns proper emoji from a full IETF language tag', () => {
