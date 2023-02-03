@@ -13,7 +13,7 @@ function countryCodeToCountry(countryCode: string): string {
 // Translates 'pl-PL' to 🇵🇱 and so on.
 export default function countryCodeToFlagEmoji(string: string): string {
   if (!string) {
-    throw new Error('Missing string argument');
+    throw new Error('string is required');
   }
 
   return Array.from(countryCodeToCountry(string)).map(letterToLetterEmoji).join('');
