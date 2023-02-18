@@ -1,20 +1,16 @@
 // Translates 'a' to '🇦', 'b' to '🇧' and so on.
-function letterToLetterEmoji(letter: string): string {
-  return String.fromCodePoint(letter.toLowerCase().charCodeAt(0) + 127365);
-}
+const letterToLetterEmoji = (letter: string): string =>
+  String.fromCodePoint(letter.toLowerCase().charCodeAt(0) + 127365);
 
 // Translates 'pl' to 'PL', 'en-US' to 'US' and so on.
-function countryCodeToCountry(countryCode: string): string {
-  const country = countryCode.split('-').pop() as string;
-
-  return country.toUpperCase();
-}
+const countryCodeToCountry = (countryCode: string): string =>
+  countryCode.split('-').pop()?.toUpperCase() as string;
 
 // Translates 'pl-PL' to 🇵🇱 and so on.
-export default function countryCodeToFlagEmoji(string: string): string {
-  if (!string) {
-    throw new Error('string is required');
+export default (code: string): string => {
+  if (!code) {
+    throw new Error('code is required');
   }
 
-  return Array.from(countryCodeToCountry(string)).map(letterToLetterEmoji).join('');
-}
+  return Array.from(countryCodeToCountry(code)).map(letterToLetterEmoji).join('');
+};
