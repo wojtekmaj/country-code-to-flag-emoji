@@ -11,10 +11,10 @@ function countryCodeToCountry(countryCode: string): string {
 }
 
 // Translates 'pl-PL' to 🇵🇱 and so on.
-export default function countryCodeToFlagEmoji(string: string): string {
-  if (!string) {
-    throw new Error('string is required');
+export default function countryCodeToFlagEmoji(countryCode: string): string {
+  if (!countryCode) {
+    throw new Error('countryCode is required');
   }
 
-  return Array.from(countryCodeToCountry(string)).map(letterToLetterEmoji).join('');
+  return Array.from(countryCodeToCountry(countryCode)).map(letterToLetterEmoji).join('');
 }
