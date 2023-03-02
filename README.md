@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/country-code-to-flag-emoji.svg)](https://www.npmjs.com/package/country-code-to-flag-emoji) ![downloads](https://img.shields.io/npm/dt/country-code-to-flag-emoji.svg) [![CI](https://github.com/wojtekmaj/country-code-to-flag-emoji/workflows/CI/badge.svg)](https://github.com/wojtekmaj/country-code-to-flag-emoji/actions) [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
+[![npm](https://img.shields.io/npm/v/country-code-to-flag-emoji.svg)](https://www.npmjs.com/package/country-code-to-flag-emoji) ![downloads](https://img.shields.io/npm/dt/country-code-to-flag-emoji.svg) [![CI](https://github.com/wojtekmaj/country-code-to-flag-emoji/workflows/CI/badge.svg)](https://github.com/wojtekmaj/country-code-to-flag-emoji/actions)
 
 # Country-Code-to-Flag-Emoji
 
