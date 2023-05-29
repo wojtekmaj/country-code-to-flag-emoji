@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import countryCodeToFlagEmoji from './index';
+import countryCodeToFlagEmoji from './index.js';
 
 describe('countryCodeToFlagEmoji', () => {
   it('returns nothing given nothing', () => {
