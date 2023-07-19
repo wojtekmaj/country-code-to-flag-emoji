@@ -9,7 +9,7 @@ A function that returns a flag emoji given [IETF language tag].
 - Install by executing `npm install country-code-to-flag-emoji` or `yarn add country-code-to-flag-emoji`.
 - Import by adding `import countryCodeToFlagEmoji from 'country-code-to-flag-emoji'`.
 - Do stuff with it!
-  ```js
+  ```ts
   countryCodeToFlagEmoji('pl'); // 🇵🇱
   ```
 
@@ -19,12 +19,10 @@ A function that returns a flag emoji given [IETF language tag].
 
 ## Examples
 
-```js
-> countryCodeToFlagEmoji('pl');
-< '🇵🇱'
+```ts
+countryCodeToFlagEmoji('pl'); // '🇵🇱'
 
-> countryCodeToFlagEmoji('hu-HU');
-< '🇭🇺'
+countryCodeToFlagEmoji('hu-HU'); // '🇭🇺'
 ```
 
 ## License
