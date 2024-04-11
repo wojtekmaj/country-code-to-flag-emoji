@@ -36,7 +36,7 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^8.56.0",
-    "eslint-config-wojtekmaj": "^0.11.0",
+    "eslint-config-wojtekmaj": "^1.0.0",
     "husky": "^9.0.0",
     "lint-staged": "^15.0.0",
     "prettier": "^3.2.0",
