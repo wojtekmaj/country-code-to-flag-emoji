@@ -1,32 +1,29 @@
-[![npm](https://img.shields.io/npm/v/detect-element-overflow.svg)](https://www.npmjs.com/package/detect-element-overflow) ![downloads](https://img.shields.io/npm/dt/detect-element-overflow.svg) [![CI](https://github.com/wojtekmaj/detect-element-overflow/actions/workflows/ci.yml/badge.svg)](https://github.com/wojtekmaj/detect-element-overflow/actions)
+[![npm](https://img.shields.io/npm/v/country-code-to-flag-emoji.svg)](https://www.npmjs.com/package/country-code-to-flag-emoji) ![downloads](https://img.shields.io/npm/dt/country-code-to-flag-emoji.svg) [![CI](https://github.com/wojtekmaj/country-code-to-flag-emoji/actions/workflows/ci.yml/badge.svg)](https://github.com/wojtekmaj/country-code-to-flag-emoji/actions)
 
-# Detect-Element-Overflow
+# Country-Code-to-Flag-Emoji
 
-A function that tells you whether a given element is overflowing its container or not. Useful for creating dropdowns and tooltips.
+A function that returns a flag emoji given [IETF language tag].
 
 ## tl;dr
 
-- Install by executing `npm install detect-element-overflow` or `yarn add detect-element-overflow`.
-- Import by adding `import detectElementOverflow from 'detect-element-overflow'`.
+- Install by executing `npm install country-code-to-flag-emoji` or `yarn add country-code-to-flag-emoji`.
+- Import by adding `import countryCodeToFlagEmoji from 'country-code-to-flag-emoji'`.
 - Do stuff with it!
   ```ts
-  const collisions = detectElementOverflow(child, parent);
+  countryCodeToFlagEmoji('pl'); // 🇵🇱
   ```
 
-## User guide
+## Accepted formats
 
-Detect-Element-Overflow returns an object with getter functions described below.
+- [IETF language tag], e.g. `'en-US'` or `'US'`
 
-| Attribute name | Description                                                                                                                                                         | Example values |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| collidedTop    | Whether or not the child element collided with the top parent's border.                                                                                             | `true`         |
-| collidedBottom | Whether or not the child element collided with the bottom parent's border.                                                                                          | `true`         |
-| collidedLeft   | Whether or not the child element collided with the left parent's border.                                                                                            | `true`         |
-| collidedRight  | Whether or not the child element collided with the right parent's border.                                                                                           | `true`         |
-| overflowTop    | How many pixels of the child have crossed the top parent's border. Negative values specify how many pixels are between the child and the top parent's border.       | `20`, `-15`    |
-| overflowBottom | How many pixels of the child have crossed the bottom parent's border. Negative values specify how many pixels are between the child and the bottom parent's border. | `20`, `-15`    |
-| overflowLeft   | How many pixels of the child have crossed the left parent's border. Negative values specify how many pixels are between the child and the left parent's border.     | `20`, `-15`    |
-| overflowRight  | How many pixels of the child have crossed the right parent's border. Negative values specify how many pixels are between the child and the right parent's border.   | `20`, `-15`    |
+## Examples
+
+```ts
+countryCodeToFlagEmoji('pl'); // '🇵🇱'
+
+countryCodeToFlagEmoji('hu-HU'); // '🇭🇺'
+```
 
 ## License
 
@@ -44,3 +41,5 @@ The MIT License.
     </td>
   </tr>
 </table>
+
+[ietf language tag]: https://en.wikipedia.org/wiki/IETF_language_tag
