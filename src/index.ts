@@ -1,29 +1,46 @@
-/**
- * Translates 'a' to '🇦', 'b' to '🇧' and so on.
- *
- * @param {string} letter A single letter, eg. 'a', 'b', 'c' or 'A', 'B', 'C'
- * @returns {string} A letter emoji
- */
-function letterToLetterEmoji(letter: string): string {
-  return String.fromCodePoint(letter.toLowerCase().charCodeAt(0) + 127365);
+const BLACK_FLAG = '🏴';
+const CANCEL_TAG = '󠁿';
+
+function shiftCodePoint(letter: string, offset: number): string {
+  return String.fromCodePoint(letter.toLowerCase().charCodeAt(0) + offset);
 }
 
 /**
- * Translates 'pl' to 'PL', 'en-US' to 'US' and so on.
+ * Converts 'a' to '🇦', 'b' to '🇧' and so on.
  *
- * @param {string} countryCode A full IETF language tag or a region name
- * @returns {string} A region name
+ * @param {string} letter A single letter, eg. 'a', 'b', 'c' or 'A', 'B', 'C'
+ * @returns {string} A regional indicator symbol letter
  */
-function countryCodeToCountry(countryCode: string): string {
+function letterToRegionalIndicator(letter: string): string {
+  return shiftCodePoint(letter, 127365);
+}
+
+/**
+ * Converts 'a' to tag latin small letter a, 'b' to tag latin small letter b and so on.
+ *
+ * @param {string} letter A single letter, eg. 'a', 'b', 'c' or 'A', 'B', 'C'
+ * @returns {string} A tag latin small letter
+ */
+function letterToTagLatinSmallLetter(letter: string): string {
+  return shiftCodePoint(letter, 917504);
+}
+
+/**
+ * Converts 'pl' to 'PL', 'en-US' to 'US' and so on.
+ *
+ * @param {string} countryCode An ISO 3166-1 alpha-2 code or IETF language tag
+ * @returns {string} An ISO 3166-1 alpha-2 code
+ */
+function getIsoAlphaCode(countryCode: string): string {
   const country = countryCode.split('-').pop() as string;
 
   return country.toUpperCase();
 }
 
 /**
- * Translates 'pl-PL' to 🇵🇱 and so on.
+ * Converts 'pl-PL' to 🇵🇱 and so on.
  *
- * @param {string} countryCode A full IETF language tag or a region name
+ * @param {string} countryCode An ISO 3166-1 alpha-2 code or IETF language tag
  * @returns {string} A flag emoji
  */
 export default function countryCodeToFlagEmoji(countryCode: string): string {
@@ -31,5 +48,20 @@ export default function countryCodeToFlagEmoji(countryCode: string): string {
     throw new Error('countryCode is required');
   }
 
-  return Array.from(countryCodeToCountry(countryCode)).map(letterToLetterEmoji).join('');
+  // Special case for UK extended codes like 'GB-SCT', 'GB-WLS' and so on
+  const uppercasedCountryCode = countryCode.toUpperCase();
+
+  if (uppercasedCountryCode.startsWith('GB-')) {
+    const extendedCountryCode = (
+      uppercasedCountryCode === 'GB-CYM' ? 'GB-WLS' : uppercasedCountryCode
+    ).replace('-', '');
+
+    return (
+      BLACK_FLAG +
+      Array.from(extendedCountryCode).map(letterToTagLatinSmallLetter).join('') +
+      CANCEL_TAG
+    );
+  }
+
+  return Array.from(getIsoAlphaCode(countryCode)).map(letterToRegionalIndicator).join('');
 }

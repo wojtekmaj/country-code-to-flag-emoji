@@ -2,7 +2,7 @@
 
 # Country-Code-to-Flag-Emoji
 
-A function that returns a flag emoji given [IETF language tag].
+A function that returns a flag emoji given [ISO 3166-1 alpha-2 code] or [IETF language tag].
 
 ## tl;dr
 
@@ -10,19 +10,20 @@ A function that returns a flag emoji given [IETF language tag].
 - Import by adding `import countryCodeToFlagEmoji from 'country-code-to-flag-emoji'`.
 - Do stuff with it!
   ```ts
-  countryCodeToFlagEmoji('pl'); // 🇵🇱
+  countryCodeToFlagEmoji('PL'); // 🇵🇱
   ```
 
 ## Accepted formats
 
-- [IETF language tag], e.g. `'en-US'` or `'US'`
+- [IETF language tag], e.g. `'en-US'` or `'pl'`
+- [ISO 3166-1 alpha-2 code], e.g. `'US'`, `'PL'`, or `'GB-SCT'`
 
 ## Examples
 
 ```ts
 countryCodeToFlagEmoji('pl'); // '🇵🇱'
 
-countryCodeToFlagEmoji('hu-HU'); // '🇭🇺'
+countryCodeToFlagEmoji('GB-SCT'); // '🏴󠁧󠁢󠁳󠁣󠁴󠁿'
 ```
 
 ## License
@@ -42,4 +43,5 @@ The MIT License.
   </tr>
 </table>
 
+[iso 3166-1 alpha-2 code]: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 [ietf language tag]: https://en.wikipedia.org/wiki/IETF_language_tag
