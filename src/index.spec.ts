@@ -38,6 +38,23 @@ describe('countryCodeToFlagEmoji', () => {
     expect(result).toBe('🇵🇱');
   });
 
+  it.each`
+    countryCode                      | expected
+    ${'en-US-u-ca-gregory'}          | ${'🇺🇸'}
+    ${'zh-Hant-TW-u-nu-hanidec'}     | ${'🇹🇼'}
+    ${'en-GB-oxendict'}              | ${'🇬🇧'}
+    ${'de-CH-1996'}                  | ${'🇨🇭'}
+    ${'en-US-x-twain'}               | ${'🇺🇸'}
+    ${'en-us-u-ca-gregory'}          | ${'🇺🇸'}
+    ${'zh-cmn-Hans-CN-u-nu-hanidec'} | ${'🇨🇳'}
+    ${'kok-IN-u-nu-deva'}            | ${'🇮🇳'}
+    ${'en-US-u-rg-gbzzzz-x-ca'}      | ${'🇺🇸'}
+  `('returns proper emoji from $countryCode', ({ countryCode, expected }) => {
+    const result = countryCodeToFlagEmoji(countryCode);
+
+    expect(result).toBe(expected);
+  });
+
   it('returns proper emoji from an UK extended code', () => {
     const result = countryCodeToFlagEmoji('GB-SCT');
 

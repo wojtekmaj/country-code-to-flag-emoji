@@ -32,7 +32,16 @@ function letterToTagLatinSmallLetter(letter: string): string {
  * @returns {string} An ISO 3166-1 alpha-2 code
  */
 function getIsoAlphaCode(countryCode: string): string {
-  const country = countryCode.split('-').pop() as string;
+  if (!countryCode.includes('-')) {
+    return countryCode.toUpperCase();
+  }
+
+  // The region follows the language, optional extended languages and optional script
+  const region = countryCode.match(
+    /^[a-z]{2,8}(?:-[a-z]{3}){0,3}(?:-[a-z]{4})?-([a-z]{2})(?:-|$)/i,
+  )?.[1];
+
+  const country = region ?? (countryCode.split('-').pop() as string);
 
   return country.toUpperCase();
 }
