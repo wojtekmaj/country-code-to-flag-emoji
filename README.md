@@ -9,6 +9,7 @@ A function that returns a flag emoji given [ISO 3166-1 alpha-2 code] or [IETF la
 - Install by executing `npm install country-code-to-flag-emoji` or `yarn add country-code-to-flag-emoji`.
 - Import by adding `import countryCodeToFlagEmoji from 'country-code-to-flag-emoji'`.
 - Do stuff with it!
+
   ```ts
   countryCodeToFlagEmoji('PL'); // 🇵🇱
   ```
